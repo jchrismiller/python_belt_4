@@ -1,0 +1,75 @@
+body{
+	font-family: "Arial";
+}
+.compliment{
+	margin: 10px 10px 10px 0px;
+}
+.main_left{
+	display: inline-block;
+	width: 700px;
+}
+
+.main_right{
+	display: inline-block;
+	vertical-align: top;
+	width: 200px;
+	border-style: solid;
+	border-width: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#paragraph{
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #d5cbc9;
+}
+.main_right form{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#author{
+	font-size: 10px;
+}
+
+#welcome{
+	font-weight: strong;
+	text-align: left;
+}
+#register_pane{
+	display: inline-block;
+	width: 400px;
+}
+#register_pane p{
+	vertical-align: top;
+}
+#messages{
+	display: inline-block;
+	width: 400px;
+	vertical-align: top;
+}
+.login_pane{
+	width: 700px;
+
+	margin-left: 0px;
+}
+.login_pane form{
+	margin-left: 20px;
+	width: 250px;
+	text-align: right;
+}
+#register_pane form{
+	vertical-align: top;
+	text-align: right;
+	width: 270px;
+}
+
+th{
+	text-align: left;
+	padding-right: 30px;
+}
+td{
+	text-align: left;
+	padding-right: 30px;
+}
+

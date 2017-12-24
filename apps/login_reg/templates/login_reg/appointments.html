@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>What's Up</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<div class = "main_left">
+		<p id = "links"><a href="/logout">Logout</a>
+		<p id = "welcome">Hello, {{ current_user.name }}! </p>
+			Today's Schedule
+
+		<div class="today_schedule">
+			<table>
+				<thead>
+					<tr>
+						<th>Tasks</th>
+						<th>Time</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for tas in today_schedule %}
+					<tr><td>{{ tas.task_name }}</td>					
+						<td>{{ tas.time }}</td>
+						<td>{{ tas.status }}</td>
+						<td><form action = /edit/{{tas.id}} method="POST">{% csrf_token %}<a href="/edit/{{tas.id}}">Edit</a></form> <form action = /delete{{tas.id}} method="POST">{% csrf_token %}<a href="/delete/{{tas.id}}">Delete</a></td>
+						{% endfor %}
+					</form>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		Your Other Tasks
+		<div class = 'other_tasks'>
+			<table>
+				<thead>
+					<tr>
+						<th>Tasks</th>
+						<th>Date</th>
+						<th>Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for tas in other_tasks %}
+					<tr>					
+						<td>{{ tas.task_name }}</td>
+						<td>{{ tas.time }}</td>
+						<td>{{ tas.date }}</td>
+						<td>{{ trip.description }}</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="add_appointment">
+			<h4>Add Appointment</h4>
+			<form action="/add" method="POST">
+				{% csrf_token %}
+			<p>Date: <input type="date" name="date"></p>
+			<p>Time: <input type="time" name="time"></p>
+			<p>Tasks: <input type="task_name" name="task_name"></p>
+			<p><input type="submit" name="add" value="Add"></p>
+			</form>
+
+		</div>
+
+		<p id="links"><a href="/add_page">Add</a></p>
+	</body>
+</html>

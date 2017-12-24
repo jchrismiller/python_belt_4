@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>What's Up</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<p id = "links"><a href="/appointments">Dashboard</a>|<a href="/logout">Logout</a></p>
+
+			<form action = /update/{{tasks.id}} method="POST">
+				{% csrf_token %}
+			<p>Tasks: <input type="text" name="task_name" value = {{tasks.task_name}}></p>
+			<p>Status: <select name = 'status'>
+						<option value = "pending">pending</option></p>
+						<option value = "done">done</option></p>
+						<option value = "missed">missed</option></p>
+						</select>
+
+			<p>Date: <input type="date" name="date"></p>
+			<p>Time: <input type="time" name="time"></p>
+			<p><input type="submit" name="update"></p>
+
+		</form>
+
+
+
+	</body>
+</html>

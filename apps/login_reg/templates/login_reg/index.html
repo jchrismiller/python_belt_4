@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login and Registration</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Welcome!</h1>
+
+			<div id="register_pane">				
+				<form action = "/registration" method = "POST">
+
+					{% csrf_token %}
+					<h4>Register</h4>
+					<p>Name <input type="text" name="name" value =  "{{ request.session.name }}" ></p>
+					<p>Email <input type="text" name="email"></p>
+					<p>Password <input type="text" name="password"></p>
+					<p>Confirm Pass <input type="text" name="confirm_password"></p>
+					<p>Date of Birth <input type="date" name = "dob"></p>
+  					
+					<p><input type="submit" name = "register" value="Register"></p>
+					<p>
+				</p>
+				</form>
+			</div> <!-- end register_pane -->
+
+			<div id="messages">
+				{% if messages %}
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+				{% endif %}
+			</div>
+
+			<div class = 'login_pane'>
+				
+				<form action = "/login" method="POST">
+					<h4>Login</h4>
+					{% csrf_token %}
+					<p>Email: <input type="text" name="email"></p>
+					<p>Password: <input type="text" name="password"></p>
+					<p><input type="submit" name="login" value="Login"></p>
+				</form>
+			</div> <!-- end login -->
+		</div> <!-- end wrapper -->
+
+	</body>
+</html>
